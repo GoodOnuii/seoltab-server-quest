@@ -43,8 +43,8 @@ describe('AppController (e2e)', () => {
 
   it('user create board', () => {
     const board = {
-      title: '학학이 소개',
-      content: '학학이는 살아있어요',
+      title: '설탭 소개',
+      content: '국내 넘버원 과외 설탭',
     };
 
     const name = 'seoltab';
