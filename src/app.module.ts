@@ -7,6 +7,7 @@ import { AppResolver } from './app/app.resolver';
 import { AppService } from './app/app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeormConfig } from './shared/util/typeOrmConfig';
+import { ApolloDriver } from '@nestjs/apollo'
 
 @Module({
   imports: [
@@ -17,27 +18,17 @@ import { typeormConfig } from './shared/util/typeOrmConfig';
       ...typeormConfig,
     }),
     GraphQLModule.forRootAsync({
+      driver: ApolloDriver,
       useFactory: () => {
         const schemaModuleOptions: Partial<GqlModuleOptions> = {};
 
         // If we are in development, we want to generate the schema.graphql
         if (process.env.NODE_ENV !== 'production' || process.env.IS_OFFLINE) {
           schemaModuleOptions.autoSchemaFile = 'schema.graphql';
-          schemaModuleOptions.debug = true;
         } else {
           // For production, the file should be generated
           schemaModuleOptions.typePaths = ['dist/schema.graphql'];
         }
-
-        schemaModuleOptions.uploads = {
-          maxFileSize: 10000000, // 10 MB
-          maxFiles: 5,
-        };
-
-        schemaModuleOptions.formatError = (error) => {
-          console.log(error.message);
-          return error;
-        };
 
         return {
           context: ({ req }) => ({ req }),

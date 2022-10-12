@@ -1,6 +1,6 @@
-FROM node:14.15.0 as builder
+FROM node:16.14.2 as builder
 
-WORKDIR /usr/src/hakhak
+WORKDIR /usr/src/seoltab
 
 COPY package.json yarn.lock ./
 
@@ -11,11 +11,11 @@ COPY . .
 RUN yarn build && \
     yarn install --production
 
-FROM node:14.15.0-alpine3.10 as runner
+FROM node:16.14.2-alpine as runner
 
-COPY --from=builder /usr/src/hakhak/node_modules ./node_modules
-COPY --from=builder /usr/src/hakhak/package.json ./package.json
-COPY --from=builder /usr/src/hakhak/dist ./dist
-COPY --from=builder /usr/src/hakhak/schema.graphql .
+COPY --from=builder /usr/src/seoltab/node_modules ./node_modules
+COPY --from=builder /usr/src/seoltab/package.json ./package.json
+COPY --from=builder /usr/src/seoltab/dist ./dist
+COPY --from=builder /usr/src/seoltab/schema.graphql .
 
 EXPOSE 3000
