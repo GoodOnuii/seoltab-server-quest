@@ -12,40 +12,40 @@ services:
     volumes:
       - database:/var/lib/postgresql/data
     networks:
-      hakhak_net:
+      seoltab_net:
         ipv4_address: 172.16.25.2
   server:
     build:
       context: .
       dockerfile: ./dev.dockerfile
     ports:
-      - '80:3000'
+      - '3000:3000'
     volumes:
-      - '.:/usr/src/hakhak'
+      - '.:/usr/src/seoltab'
     depends_on:
       - db
     command: 'yarn start:prod'
     networks:
-      hakhak_net:
+      seoltab_net:
         ipv4_address: 172.16.25.3
   test:
     build:
       context: .
       dockerfile: ./test.dockerfile
     ports:
-      - '80:3000'
+      - '3000:3000'
     volumes:
       - '.:/usr/src/test'
     depends_on:
       - db
     command: 'yarn test'
     networks:
-      hakhak_net:
+      seoltab_net:
         ipv4_address: 172.16.25.4
 volumes:
   database:
 networks:
-  hakhak_net:
+  seoltab_net:
     driver: bridge
     ipam:
       config:

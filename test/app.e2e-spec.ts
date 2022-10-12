@@ -31,7 +31,7 @@ describe('AppController (e2e)', () => {
   });
 
   it('user create', () => {
-    const name = 'hakhak';
+    const name = 'seoltab';
     return request(app.getHttpServer())
       .post('/graphql')
       .send({ query: `mutation {createUser(name: "${name}"){name}}` })
@@ -47,7 +47,7 @@ describe('AppController (e2e)', () => {
       content: '학학이는 살아있어요',
     };
 
-    const name = 'hakhak';
+    const name = 'seoltab';
 
     return request(app.getHttpServer())
       .post('/graphql')
@@ -61,7 +61,7 @@ describe('AppController (e2e)', () => {
   });
 
   it('boards of user', () => {
-    const name = 'hakhak';
+    const name = 'seoltab';
 
     return request(app.getHttpServer())
       .post('/graphql')

@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://flatgarden.imweb.me/" target="blank"><img src="https://cdn.imweb.me/thumbnail/20200527/8394b8cd5faa4.png" width="320" alt="hakhak Logo" /></a>
+  <a href="https://www.seoltab.com/" target="blank"><img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F029b9664-e3bf-43c0-a3d9-04482f891391%2Fimage_(43).png&blockId=33f0f7c2-790e-4983-8ed8-728ed29f9f2d&width=256" width="320" alt="seotab Logo" /></a>
 </p>
 
-  <p align="center">입시 고민 메신저 학학이 서버 테스트 과제</p>
+  <p align="center">No 1 과외, 설탭 채용 과제</p>
   
 ## Description
 
@@ -17,9 +17,9 @@ database는 docker-compose를 통해 가동하셔서 진행하시면 되고 dock
 
 완료 기간은 1주일이내 완료해주시면 되고 해당 리포지토리를 clone하여 작성해주신 후
 
-origin 을 따로 추가해서 개인 리포의 repository url을 mail(tech@flatgarden.kr)로 보내주시면 됩니다.
+origin 을 따로 추가해서 개인 리포의 repository url을 mail(goobaek@onuii.com)로 보내주시면 됩니다.
 
-추가적으로 질문사항이나 궁금한 것이 있으면 [오픈채팅방](https://open.kakao.com/o/sULPN0Fc)에서 질문 바랍니다.
+추가적으로 질문사항이나 궁금한 것이 있으면 [오픈채팅방](https://open.kakao.com/o/gvVJSxHe)에서 질문 바랍니다.
 
 - Before you start
 
@@ -32,7 +32,6 @@ docker-compose 환경이 구축되어야합니다.
 ## docker
 
 docker-compose환경에서 모든 것이 이루어집니다.
-20201111 수정
 
 - local에서 테스트 하기 어려운 지원자가 있을 것이라 예상되어 docker-compose 환경을 구축하였습니다.
 - db, server, test 모두 service로 들어가 있습니다.
@@ -61,7 +60,7 @@ $ docker-compose build
 ### start all
 
 ```bash
-$ docker-compose up -d
+$ docker-compose up server db
 ```
 
 ### start only api server
@@ -75,6 +74,7 @@ $ docker-compose up server
 ```bash
 $ docker-compose up test
 ```
+
 ### Stops containers and removes containers, networks, volumes
 
 ```bash
@@ -218,16 +218,17 @@ test 케이스를 다양하게 작성하시면 가산점이 적용됩니다.
 ### 가산점 항목
 
 - [5점]graphql schema first로 코드를 변경해서 코딩한 경우
-- [4점][JWT](https://jwt.io/)를 이용하여서 authentication과 authorization을 구현하였을 경우
+- [4점][jwt](https://jwt.io/)를 이용하여서 authentication과 authorization을 구현하였을 경우
   - nest의 authguard를 사용할 수 있습니다.
 - [2점]도메인 별로 브랜치를 나누어서 개발했을 경우
 - [5점]test case 를 직접 작성하였을 경우
+- [5점]cqrs 패턴으로 변경하여 서버 구성한 경우
 
 ## Support
 
-[오픈채팅방](https://open.kakao.com/o/sULPN0Fc)
+[오픈채팅방](https://open.kakao.com/o/gvVJSxHe)
 
 ## Stay in touch
 
-- mail - tech@flatgarden.kr
-- Website - [https://www.hakhak.io](https://www.hakhak.io)
+- mail - goobaek@onuii.com
+- Website - [https://www.seoltab.com](https://www.seoltab.com)
